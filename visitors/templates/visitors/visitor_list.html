@@ -1,0 +1,176 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor List</title>
+</head>
+<body>
+    <h2>Visitor List</h2>
+    <ul>
+        {% for visitor in visitors %}
+            <li>{{ visitor.name }} - {{ visitor.address }} - {{ visitor.mobile_number }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html> {% endcomment %}
+{% comment %} ************************* {% endcomment %}
+<!-- visitors/templates/visitors/visitor_list.html -->
+
+<!-- ... -->
+
+<!-- visitors/templates/visitors/visitor_list.html -->
+
+<!-- visitors/templates/visitors/visitor_list.html -->
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Visitor List</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Mobile Number</th>
+                <th>Action</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for visitor in visitors %}
+                <tr>
+                    <td>{{ visitor.name }}</td>
+                    <td>{{ visitor.address }}</td>
+                    <td>{{ visitor.mobile_number }}</td>
+                    <td><a href="{% url 'update_visitor' visitor.id %}">Update</a></td>
+                    <td><a href="{% url 'delete_visitor' visitor.id %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff; /* Set text color to white for better readability */
+        }
+        .login-container {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 600px;
+            text-align: center;
+            background-color: #fff;
+        }
+    
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+         {% comment %} h2 {
+            text-align: center; 
+             color: black; /* Set heading color to black */ 
+         }  {% endcomment %}
+         
+        table {
+            width: 100%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white for better readability */
+            border: 4px solid #000; /* Bold black border for the table */
+        }
+        
+        th, td {
+            border: 2px solid #000; /* Bold black border for table cells */
+            padding: 12px;
+            text-align: left;
+            color: #333; /* Set cell text color to a dark shade */
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        
+        a:hover {
+            color: #1e87d0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+    <h2>Visitor List</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Mobile Number</th>
+                <th>Action</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for visitor in visitors %}
+                <tr>
+                    <td>{{ visitor.name }}</td>
+                    <td>{{ visitor.address }}</td>
+                    <td>{{ visitor.mobile_number }}</td>
+                    <td><a href="{% url 'update_visitor' visitor.id %}">Update</a></td>
+                    <td><a href="{% url 'delete_visitor' visitor.id %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html> 
+
